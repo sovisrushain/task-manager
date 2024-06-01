@@ -36,7 +36,7 @@ public class SecurityConfig {
                 .requestMatchers("/auth/**")
                 .permitAll()
                 .and()
-                .authorizeHttpRequests().requestMatchers("/heroes/**")
+                .authorizeHttpRequests().requestMatchers("/api/tasks/**")
                 .authenticated()
                 .and()
                 .formLogin()
