@@ -44,7 +44,8 @@ public class TaskServiceImpl implements TaskService {
         task.setDescription(taskDTO.getDescription());
         task.setCompleted(taskDTO.getCompleted());
         task.setUser(user);
-        taskRepository.save(task);
+        Task res = taskRepository.save(task);
+        taskDTO.setId(res.getId());
         return taskDTO;
     }
 
@@ -57,7 +58,8 @@ public class TaskServiceImpl implements TaskService {
         task.setTitle(taskDTO.getTitle());
         task.setDescription(taskDTO.getDescription());
         task.setCompleted(taskDTO.getCompleted());
-        taskRepository.save(task);
+        Task res = taskRepository.save(task);
+        taskDTO.setId(res.getId());
         return taskDTO;
     }
 
