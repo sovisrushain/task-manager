@@ -23,7 +23,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<TaskDTO> getAllTasks() {
         UserEntity user = getCurrentUser();
-        List<Task> taskList = taskRepository.findTasksById(user.getId());
+        List<Task> taskList = taskRepository.findByUserId(user.getId());
         List<TaskDTO> taskDTOList = new ArrayList<>();
         for (Task task : taskList) {
             TaskDTO taskDTO = new TaskDTO();
