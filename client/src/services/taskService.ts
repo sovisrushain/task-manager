@@ -24,7 +24,7 @@ export const addTask = async (token: string, task: { title: string; description:
 export const updateTask = async (token: string, id: number, task: { title: string; description: string; completed: boolean }) => {
   const response = await axios.put(`${API_URL}/${id}`, task, {
     headers: {
-      Authorization: `Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     }
   });
   return response.data;
@@ -33,7 +33,7 @@ export const updateTask = async (token: string, id: number, task: { title: strin
 export const deleteTask = async (token: string, id: number) => {
   const response = await axios.delete(`${API_URL}/${id}`, {
     headers: {
-      Authorization: `Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     }
   });
   return response.data;
