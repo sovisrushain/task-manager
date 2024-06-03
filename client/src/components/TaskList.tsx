@@ -4,7 +4,7 @@ import { Task } from '../types/task';
 interface TaskListProps {
   tasks: Task[];
   onEdit: (task: Task) => void;
-  onDelete: (id: string) => void;
+  onDelete: (id: number) => void;
 }
 
 const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
@@ -16,7 +16,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
           <li key={task.id}>
             <h3>{task.title}</h3>
             <p>{task.description}</p>
-            <p>Status: {task.status ? 'Completed' : 'Pending'}</p>
+            <p>Status: {task.completed ? 'Completed' : 'Pending'}</p>
             <button onClick={() => onEdit(task)}>Edit</button>
             <button onClick={() => onDelete(task.id)}>Delete</button>
           </li>

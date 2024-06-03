@@ -9,11 +9,11 @@ interface TaskFormProps {
 const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, task }) => {
   const [title, setTitle] = useState(task ? task.title : '');
   const [description, setDescription] = useState(task ? task.description : '');
-  const [status, setStatus] = useState(task ? task.status : false);
+  const [completed, setStatus] = useState(task ? task.completed : false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newTask: Task = { id: task ? task.id : '', title, description, status };
+    const newTask: Task = { id: task ? task.id : 0, title, description, completed };
     onSubmit(newTask);
   };
 
@@ -30,7 +30,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, task }) => {
       </div>
       <div>
         <label>Status</label>
-        <input type="checkbox" checked={status} onChange={(e) => setStatus(e.target.checked)} />
+        <input type="checkbox" checked={completed} onChange={(e) => setStatus(e.target.checked)} />
       </div>
       <button type="submit">{task ? 'Update' : 'Add'}</button>
     </form>

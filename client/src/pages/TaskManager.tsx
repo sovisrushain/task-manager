@@ -4,6 +4,7 @@ import TaskForm from '../components/TaskForm';
 import TaskList from '../components/TaskList';
 import { getTasks, addTask, updateTask, deleteTask } from '../services/taskService';
 import { Task } from '../types/task';
+import { log } from 'console';
 
 const TaskManager: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -15,6 +16,8 @@ const TaskManager: React.FC = () => {
       const fetchTasks = async () => {
         try {
           const token = localStorage.getItem('token');
+          console.log(token);
+          
           if (!token) {
             navigate('/login');
             return;
@@ -54,7 +57,7 @@ const TaskManager: React.FC = () => {
       }
     };
   
-    const handleDeleteTask = async (id: string) => {
+    const handleDeleteTask = async (id: number) => {
       try {
         const token = localStorage.getItem('token');
         if (!token) return;
