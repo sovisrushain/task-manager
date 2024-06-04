@@ -4,7 +4,8 @@ import TaskForm from '../components/TaskForm';
 import TaskList from '../components/TaskList';
 import { getTasks, addTask, updateTask, deleteTask } from '../services/taskService';
 import { Task } from '../types/task';
-import { log } from 'console';
+import { title } from 'process';
+
 
 const TaskManager: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -44,14 +45,14 @@ const TaskManager: React.FC = () => {
       }
     };
   
-    const handleUpdateTask = async (task: Task) => {
+    const handleUpdateTask = async (task: Task) => {      
       try {
         const token = localStorage.getItem('token');
         if (!token) return;
-  
+
         const updatedTask = await updateTask(token, task.id, task);
         setTasks(tasks.map(t => (t.id === task.id ? updatedTask : t)));
-        setEditingTask(null);
+        setEditingTask(null)
       } catch (error) {
         console.error('Failed to update task', error);
       }
