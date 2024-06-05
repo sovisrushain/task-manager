@@ -24,7 +24,7 @@ Our Task Manager application is fantastic, but it needs some TLC on the front en
 ### Perks of Contributing
 - Eternal gratitude and virtual high-fives! ✋
 - Your name in lights (or at least in our contributors list).
-- The satisfaction of making the world a better place, one TODO app at a time.
+- The satisfaction of making the world a better place, one Task Manager app at a time.
 Join us on this fun journey, and let's build something amazing together!
 
 ### License
